@@ -1,0 +1,37 @@
+  # Number guessing game
+import random
+tries = 3
+game_over = False
+guess = ""
+number = float(random.randint(1, 10))
+print(number)
+while game_over == False:
+    while tries > 0:
+        try:
+            guess = float(input("Try your best guess: "))
+            tries += -1
+        except ValueError:
+            print("Please enter a number")
+        if number == guess:
+            game_over = True
+            tries = 0
+            print("Correct!")
+        elif tries > 0:
+            print("Try again")
+
+    if not game_over ==  True:
+        print("Out of tries!")
+
+    game = ""
+    while game.lower() not in ["yes", "no"]:
+        game = str((input("Do you want to start over? ")))
+        if game.lower() not in ["yes", "no"]:
+            print("Please enter Yes or No")
+        elif game == "yes":
+            game_over = False
+            tries = 3
+        else:
+            game_over = True
+
+
+
